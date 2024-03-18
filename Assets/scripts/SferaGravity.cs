@@ -4,24 +4,18 @@ using UnityEngine;
 
 public class SferaGravity : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+        if (other.gameObject.GetComponent<Rigidbody>() != null)
+        {
+            other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        other.gameObject.GetComponent<Rigidbody>().useGravity = true;
+        if (other.gameObject.GetComponent<Rigidbody>() != null)
+        {
+            other.gameObject.GetComponent<Rigidbody>().useGravity = true;
+        }
     }
 }
